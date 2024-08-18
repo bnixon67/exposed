@@ -11,4 +11,4 @@ You can check if a password has been exposed in breaches by using the CheckPwned
 
 ## Checking a Hash
 
-If you already have a hash of the password, you can use the CheckPwnedHash function directly.  This function supports both SHA-1 and NTLM hash modes.
+If you already have a SHA-1 or NTLM hash of the password, you can use the CheckPwnedHash function directly.

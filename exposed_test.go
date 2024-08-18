@@ -108,8 +108,8 @@ func TestCheckPwnedPassword(t *testing.T) {
 			}))
 			defer server.Close()
 
-			client := &http.Client{}
-			count, err := exposed.CheckPwnedPassword(client, server.URL, tc.password, tc.mode)
+			c := exposed.NewPwnedClient(&http.Client{}, server.URL)
+			count, err := c.CheckPwnedPassword(tc.password, tc.mode)
 
 			if (err != nil) != tc.wantErr {
 				t.Errorf("CheckPwnedPassword() error = %v, expectedErr %v", err, tc.wantErr)
